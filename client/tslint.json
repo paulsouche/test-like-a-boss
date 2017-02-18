@@ -1,0 +1,31 @@
+{
+  "extends": "tslint:latest",
+  "rules": {
+    "object-literal-sort-keys": false,
+    "no-reference": false,
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "variable-name": [
+      true,
+      "allow-leading-underscore"
+    ],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-module",
+      "check-separator",
+      "check-type"
+    ]
+  },
+  "jsRules": {
+    "object-literal-sort-keys": false,
+    "quotemark": [
+      true,
+      "single"
+    ]
+  }
+}

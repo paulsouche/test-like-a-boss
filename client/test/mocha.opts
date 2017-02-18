@@ -1,0 +1,4 @@
+--compilers ts-node/register
+--watch
+--require ./test/mocha.shim.js
+./test/**/*.spec.ts

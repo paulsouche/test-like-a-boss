@@ -1,0 +1,136 @@
+{
+  "name": "test-client",
+  "version": "1.0.0",
+  "description": "Presentation angular2 client tested with karma & protractor",
+  "main": "main.ts",
+  "scripts": {
+    "build": "npm run clean-www && webpack --profile --bail",
+    "clean": "rimraf doc www coverage",
+    "clean-www": "rimraf www",
+    "docs": "typedoc --options typedoc.json src/main.ts",
+    "e2e": "protractor",
+    "lint": "tslint --force \"./src/**/*.ts\" \"./src/**/*.js\" \"./*.js\"",
+    "start": "npm run clean-www && webpack-dev-server --colors --open",
+    "test": "karma start",
+    "test-watch": "karma start --no-single-run --auto-watch",
+    "test-fuse": "cross-env TS_NODE_PROJECT=./test/tsconfig.json mocha --opts ./test/mocha.opts -G",
+    "test-fuse-coverage": "cross-env TS_NODE_PROJECT=./test/tsconfig.json nyc mocha --opts ./test/mocha.coverage.opts -G",
+    "webdriver-update": "webdriver-manager update",
+    "postinstall": "npm run webdriver-update"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulsouche/test-like-a-boss.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "tests",
+    "nyc",
+    "mocha",
+    "ts-node",
+    "karma",
+    "protractor"
+  ],
+  "author": "paulsouche",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/paulsouche/test-like-a-boss/issues"
+  },
+  "homepage": "https://github.com/paulsouche/test-like-a-boss#readme",
+  "devDependencies": {
+    "@angular/router": "^3.0.0",
+    "@ngtools/webpack": "^1.0.0",
+    "@types/chai": "*",
+    "@types/jasmine": "*",
+    "angular2-template-loader": "^0.6.0",
+    "autoprefixer": "^6.0.0",
+    "chai": "^3.0.0",
+    "cross-env": "^3.0.0",
+    "css-loader": "^0.26.0",
+    "extract-text-webpack-plugin": "2.0.0-rc.3",
+    "file-loader": "^0.10.0",
+    "html-loader": "^0.4.0",
+    "html-webpack-plugin": "^2.0.0",
+    "istanbul-instrumenter-loader": "^2.0.0",
+    "jasmine-core": "^2.0.0",
+    "jasmine-spec-reporter": "^3.0.0",
+    "jsdom": "^9.0.0",
+    "json-loader": "^0.5.0",
+    "karma": "^1.0.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-coverage": "^1.0.0",
+    "karma-jasmine": "^1.0.0",
+    "karma-mocha-reporter": "^2.0.0",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-remap-istanbul": "^0.6.0",
+    "karma-sourcemap-loader": "^0.3.0",
+    "karma-webpack": "^2.0.0",
+    "mocha": "^3.0.0",
+    "node-sass": "^4.0.0",
+    "null-loader": "^0.1.0",
+    "nyc": "^10.0.0",
+    "postcss-loader": "^1.0.0",
+    "protractor": "^5.0.0",
+    "raw-loader": "^0.5.0",
+    "remap-istanbul": "^0.9.0",
+    "rimraf": "^2.0.0",
+    "sass-loader": "^5.0.0",
+    "style-loader": "^0.13.0",
+    "stylelint-config-standard": "^16.0.0",
+    "stylelint-webpack-plugin": "^0.6.0",
+    "svg-sprite-loader": "^0.2.0",
+    "ts-loader": "^2.0.0",
+    "ts-node": "^2.0.0",
+    "tslint": "^4.0.0",
+    "tslint-loader": "^3.0.0",
+    "typedoc": "^0.5.0",
+    "typescript": "^2.0.0",
+    "url-loader": "^0.5.0",
+    "webpack": "^2.0.0",
+    "webpack-dev-server": "^2.0.0"
+  },
+  "dependencies": {
+    "@angular/common": "^2.0.0",
+    "@angular/compiler": "^2.0.0",
+    "@angular/compiler-cli": "^2.0.0",
+    "@angular/core": "^2.0.0",
+    "@angular/forms": "^2.0.0",
+    "@angular/http": "^2.0.0",
+    "@angular/platform-browser": "^2.0.0",
+    "@angular/platform-browser-dynamic": "^2.0.0",
+    "@angular/platform-server": "^2.0.0",
+    "bootstrap": "^4.0.0-alpha.6",
+    "core-js": "^2.0.0",
+    "font-awesome": "^4.7.0",
+    "reflect-metadata": "^0.1.0",
+    "rxjs": "^5.0.0",
+    "ts-helpers": "^1.0.0",
+    "zone.js": "^0.7.0"
+  },
+  "nyc": {
+    "include": [
+      "src/app/**/*.ts"
+    ],
+    "exclude": [
+      "src/app/app.module.ts",
+      "src/app/**/*.spec.ts",
+      "src/app/**/*.e2e-spec.ts",
+      "node_modules",
+      "coverage",
+      "www"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "html",
+      "lcov"
+    ],
+    "all": true,
+    "sourceMap": true,
+    "instrument": true
+  }
+}

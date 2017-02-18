@@ -1,0 +1,69 @@
+{
+  "name": "test-server",
+  "version": "1.0.0",
+  "description": "Presentation express server unit tested with mocha chai",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p src",
+    "lint": "tslint \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "npm run build && nodemon dist/index.js",
+    "test": "nyc mocha --recursive --compilers ts:ts-node/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulsouche/test-like-a-boss.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "tests",
+    "nyc",
+    "mocha",
+    "ts-node"
+  ],
+  "author": "paulsouche",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/paulsouche/test-like-a-boss/issues"
+  },
+  "homepage": "https://github.com/paulsouche/test-like-a-boss#readme",
+  "devDependencies": {
+    "@types/body-parser": "*",
+    "@types/chai": "*",
+    "@types/express": "*",
+    "@types/mocha": "*",
+    "@types/supertest": "*",
+    "chai": "^3.0.0",
+    "mocha": "^3.0.0",
+    "nodemon": "^1.11.0",
+    "supertest": "^3.0.0",
+    "ts-node": "^2.0.0",
+    "typescript": "^2.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.0.0",
+    "express": "^4.0.0",
+    "nyc": "^10.0.0"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "node_modules",
+      "coverage",
+      "dist"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "json",
+      "html"
+    ],
+    "all": true,
+    "sourceMap": true
+  }
+}
